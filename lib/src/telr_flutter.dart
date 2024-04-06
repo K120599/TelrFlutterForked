@@ -8,17 +8,17 @@ import './model/transaction.dart';
 
 class TelrFlutter {
   final TelrConfiguration configuration;
-  BillingAddress billingAddress;
-  Transaction transaction;
+  BillingAddress? billingAddress;
+  Transaction? transaction;
   MethodChannel _channel = const MethodChannel('telr_flutter');
 
-  TelrFlutter({required this.configuration,required this.billingAddress,required this.transaction});
+  TelrFlutter({required this.configuration, this.billingAddress, this.transaction});
 
   Future<bool> _startTransaction() async {
     final bool? status = await _channel.invokeMethod<bool>('startTransaction', {
       "config": configuration.toMap(),
-      "billingAddress": billingAddress.toMap(),
-      "transaction": transaction.toMap(),
+      "billingAddress": billingAddress!.toMap(),
+      "transaction": transaction!.toMap(),
     });
     log(status.toString());
     return status!;
