@@ -8,11 +8,11 @@ class TelrConfiguration {
   final String email;
 
   TelrConfiguration({
-    @required this.key,
-    @required this.storeId,
+    required this.key,
+    required this.storeId,
     this.testMode = false,
     this.enableSecurity = true,
-    @required this.email,
+    required this.email,
   });
 
   Map<String, dynamic> toMap() => {

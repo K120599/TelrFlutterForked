@@ -12,19 +12,19 @@ class TelrFlutter {
   Transaction transaction;
   MethodChannel _channel = const MethodChannel('telr_flutter');
 
-  TelrFlutter({@required this.configuration});
+  TelrFlutter({required this.configuration,required this.billingAddress,required this.transaction});
 
   Future<bool> _startTransaction() async {
-    final bool status = await _channel.invokeMethod<bool>('startTransaction', {
+    final bool? status = await _channel.invokeMethod<bool>('startTransaction', {
       "config": configuration.toMap(),
       "billingAddress": billingAddress.toMap(),
       "transaction": transaction.toMap(),
     });
     log(status.toString());
-    return status;
+    return status!;
   }
 
-  Future<bool> makePayment({@required Transaction transaction}) async {
+  Future<bool> makePayment({required Transaction transaction}) async {
     if (billingAddress == null) {
       return false;
     }

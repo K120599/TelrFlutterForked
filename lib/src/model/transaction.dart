@@ -7,7 +7,7 @@ class Transaction {
   final String userId;
 
   Transaction(
-      {@required this.amount,
+      {required this.amount,
       this.language = "en",
       this.currency = "AED",
       this.userId = "123456"});

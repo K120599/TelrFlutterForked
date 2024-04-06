@@ -10,13 +10,13 @@ class BillingAddress {
   final String phoneNumber;
 
   BillingAddress({
-    @required this.city,
-    @required this.country,
-    @required this.region,
-    @required this.line,
-    @required this.firstName,
-    @required this.lastName,
-    @required this.phoneNumber,
+    required this.city,
+    required this.country,
+    required this.region,
+    required this.line,
+    required this.firstName,
+    required this.lastName,
+    required this.phoneNumber,
   });
 
   Map<String, dynamic> toMap() => {
